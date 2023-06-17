@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="warp">
+    <form action="{% url 'common:country' %}" method="get">
+
+        <h2 class="mb-5">방구석 세계여행</h2>
+        <select name="country" id="page-select" class="form-control px-2">
+            <option selected>:: 여행지를 선택해주세요! ::</option>
+            <option value="/common/japan/">일본</option>
+            <option value="/common/usa/">미국</option>
+            <option value="/common/china/">중국</option>
+        </select>
+        <button type="submit" class="rounded">Go</button>
+    </form>
+</div>
+
+<script>
+    const pageSelect = document.getElementById('page-select');
+    const form = document.querySelector('form');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const selectedValue = pageSelect.value;
+      if (selectedValue) {
+        fetch('/common/country/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'X-CSRFToken': '{{ csrf_token }}',
+          },
+          body: `country=${encodeURIComponent(selectedValue)}`,
+        })
+        .then(response => {
+          if (response.ok) {
+            window.location.href = selectedValue;
+          } else {
+            console.error('Error:', response.statusText);
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      }
+    });
+  </script>
+{% endblock %}
