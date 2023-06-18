@@ -1,0 +1,67 @@
+ul,ol {
+    list-style: none;
+}
+img {
+    width: 100%;
+}
+.warp {
+    width: 100%;
+    height: calc(100vh - 57px);
+    padding: 10% 15% 0 15% ;
+    text-align: center;
+    background: rgb(255,255,255);
+    background: linear-gradient(162deg, rgba(255,255,255,1) 0%, rgba(56,162,208,1) 100%);
+}
+.warp form{
+    width: 100%;   
+}
+
+.warp .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.warp .inner label {
+    display: block;
+    text-align: left;
+    margin-right: 3%;
+    min-width: 7rem;
+}
+
+.warp button[type="submit"] {
+    background-color: #000;
+    border: none;
+    padding: 0.4em 3rem;
+    color: #fff;
+}
+.warp .form-control {
+    display: inline-block;
+}
+
+.travel {
+    text-align: center;
+}
+
+#page-select {
+    width: 50%;
+    padding: 0.4em 0;
+    text-align: left;
+    border: 1px solid #aaa;
+}
+
+h2 {
+    font-size: 34px;
+    font-weight: bold;
+    color: #1b53d5;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+.country-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
